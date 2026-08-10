@@ -69,7 +69,7 @@ class WorkoutType(models.Model):
         ("strength", "Strength"),
     ]
 
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=30)
     exercise_type = models.CharField(max_length=10, choices=TYPE_CHOICES, default="strength") 
 
     def __str__(self):
