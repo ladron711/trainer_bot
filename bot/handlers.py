@@ -121,12 +121,20 @@ async def cancel_callback(callback: CallbackQuery, state: FSMContext):
 
 @router.message(Command("cancel"))
 async def cancel_command(message: Message, state: FSMContext):
-    current_state = await state.get_state() 
+    current_state = await state.get_state()
     if current_state is None:
         await message.answer("Nothing to cancel")
         return
+
     await state.clear()
-    await message.answer("Canceled", reply_markup=get_main_keyboard())
+
+    if await user_exists(message.from_user.id):
+        await message.answer("Canceled", reply_markup=get_main_keyboard())
+        return
+
+    kb = InlineKeyboardBuilder()
+    kb.button(text="New User", callback_data="new_user")
+    await message.answer("Registration canceled. You need to register first", reply_markup=kb.as_markup())
 
 
 @router.message(CommandStart())
@@ -225,6 +233,13 @@ def save_measurement(user_id, field, value):
 
 @router.callback_query(F.data == "new_log")
 async def new_log(callback: CallbackQuery):
+    if not await user_exists(callback.from_user.id):
+        kb = InlineKeyboardBuilder()
+        kb.button(text="New User", callback_data="new_user")
+        await callback.message.answer("You need to register first", reply_markup=kb.as_markup())
+        await callback.answer()
+        return
+
     kb = InlineKeyboardBuilder()
     kb.button(text="Body Measurement", callback_data="log_body_measurement")
     kb.button(text="Workout", callback_data="log_workout")
