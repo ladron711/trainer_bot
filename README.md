@@ -11,6 +11,7 @@ and generates weekly reports using an LLM.
 ## Stack
 **Backend:** Python, Django ORM
 **Bot:** Python, aiogram, FSM states
+**Database:** PostgreSQL
 **AI:** Claude Sonnet (Anthropic)
 **Infrastructure:** Docker, Docker Compose
 **Tests:** pytest
