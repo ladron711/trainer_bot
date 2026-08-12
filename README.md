@@ -8,7 +8,7 @@ and generates weekly reports using an LLM.
 **Bot:** Python, aiogram, FSM states
 **AI:** Claude Sonnet (Anthropic)
 **Infrastructure:** Docker, Docker Compose
-**Test:** PyTest
+**Tests:** pytest
 
 ## Project Structure
 ```
@@ -25,7 +25,7 @@ trainer_bot/
 ├── bot/
 │   ├── handlers.py          # File with handlers  and keyboards
 │   ├── states.py            # States for FSM
-│   └──  main.py             # Main file for bot starting and pooling
+│   └──  main.py             # Main file for bot starting and polling
 ├── docker-compose.yml
 ├── Dockerfile
 ├── .dockerignore
@@ -43,7 +43,6 @@ Create `.env` file based on `.env.example` and fill in all variables
 
 ### Prerequisites
 - Docker and Docker Compose installed on your server
-- PostgreSQL installed
 - Git installed
 
 ### Steps
@@ -52,7 +51,8 @@ Create `.env` file based on `.env.example` and fill in all variables
 git clone https://github.com/ladron711/trainer_bot.git
 cd trainer_bot
 ```
-2. Create `.env` file in the root directory and fill in all variables from the '.env'
+2. Create `.env` file based on `.env.example` and fill in all variables
+
 3. Build and start containers
 ```bash
 docker compose up --build -d
