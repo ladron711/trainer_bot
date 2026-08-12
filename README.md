@@ -3,6 +3,11 @@ A personal Telegram bot for fitness tracking with AI-powered analysis by Claude.
 The bot tracks daily meals and macros (calories, protein, fats, carbs), logs workouts, 
 and generates weekly reports using an LLM.
 
+# Screenshots
+<img width="737" height="215" alt="product_search" src="https://github.com/user-attachments/assets/442fc60a-2c1c-43bc-bee0-a94910c9192f" />
+<img width="549" height="338" alt="body_log" src="https://github.com/user-attachments/assets/851a0e46-e087-4582-b0a0-9d32dd17137e" />
+<img width="543" height="176" alt="new_log" src="https://github.com/user-attachments/assets/0e55b4f0-9fb9-48a4-ad9c-c6f2473d0768" />
+
 ## Stack
 **Backend:** Python, Django ORM
 **Bot:** Python, aiogram, FSM states
@@ -52,6 +57,14 @@ git clone https://github.com/ladron711/trainer_bot.git
 cd trainer_bot
 ```
 2. Create `.env` file based on `.env.example` and fill in all variables
+| `BOT_TOKEN` | Telegram bot token from @BotFather |
+| `SECRET_KEY` | Django secret key |
+| `DB_NAME` | PostgreSQL database name |
+| `DB_USER` | PostgreSQL username |
+| `DB_PASSWORD` | PostgreSQL password |
+| `DB_HOST` | PostgreSQL host (use `db` for Docker) |
+| `DB_PORT` | PostgreSQL port (default: 5432) |
+| `ANTHROPIC_API_KEY` | API key from console.anthropic.com |
 
 3. Build and start containers
 ```bash
@@ -94,9 +107,3 @@ Daily targets are calculated using the Mifflin-St Jeor equation:
 BMR is adjusted by activity level (1.375–1.725) and goal (0.85 for weight loss,
 1.1 for muscle gain). Protein and fats are set per kg of body weight,
 carbs fill the remaining calories.
-
-### Screenshots
-<img width="737" height="215" alt="product_search" src="https://github.com/user-attachments/assets/442fc60a-2c1c-43bc-bee0-a94910c9192f" />
-<img width="549" height="338" alt="body_log" src="https://github.com/user-attachments/assets/851a0e46-e087-4582-b0a0-9d32dd17137e" />
-<img width="543" height="176" alt="new_log" src="https://github.com/user-attachments/assets/0e55b4f0-9fb9-48a4-ad9c-c6f2473d0768" />
-
