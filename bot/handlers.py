@@ -379,6 +379,7 @@ async def search_product(message: Message, state: FSMContext):
     for product in products:
         kb.button(text=product.name, callback_data=f"p_{product.id}")
     kb.button(text="Cancel", callback_data="cancel")
+    kb.adjust(2)
 
     await message.answer("Select a product", reply_markup=kb.as_markup())
 
