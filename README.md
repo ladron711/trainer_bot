@@ -58,6 +58,7 @@ git clone https://github.com/ladron711/trainer_bot.git
 cd trainer_bot
 ```
 2. Create `.env` file based on `.env.example` and fill in all variables
+   
 | Variable | Description |
 |---|---|
 | `BOT_TOKEN` | Telegram bot token from @BotFather |
