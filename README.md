@@ -58,6 +58,8 @@ git clone https://github.com/ladron711/trainer_bot.git
 cd trainer_bot
 ```
 2. Create `.env` file based on `.env.example` and fill in all variables
+| Variable | Description |
+|---|---| 
 | `BOT_TOKEN` | Telegram bot token from @BotFather |
 | `SECRET_KEY` | Django secret key |
 | `DB_NAME` | PostgreSQL database name |
@@ -67,7 +69,7 @@ cd trainer_bot
 | `DB_PORT` | PostgreSQL port (default: 5432) |
 | `ANTHROPIC_API_KEY` | API key from console.anthropic.com |
 
-3. Build and start containers
+4. Build and start containers
 ```bash
 docker compose up --build -d
 ```
